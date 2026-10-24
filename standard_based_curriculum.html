@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Standard-Based Curriculum Design | Teacher Aus Science Lab</title>
+<style>
+:root{--navy:#122c4a;--ink:#20384e;--muted:#64758b;--paper:#f4f8ff;--white:#fff;--blue:#3b82f6;--cyan:#06b6d4;--green:#10b981;--orange:#f59e0b;--pink:#ec4899;--purple:#8b5cf6;--line:#dbe6f4}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:18px}body{margin:0;background:radial-gradient(circle at 8% 4%,#dff7ff 0,transparent 25%),radial-gradient(circle at 90% 10%,#f4e7ff 0,transparent 22%),var(--paper);color:var(--ink);font:16px/1.55 Inter,Arial,sans-serif}
+a,button{font:inherit}button,a{ -webkit-tap-highlight-color:transparent}.wrap{max-width:1250px;margin:auto;padding:24px}.hero{background:linear-gradient(130deg,#102748,#174f75 58%,#087e9d);border-radius:28px;color:white;padding:clamp(22px,4vw,44px);position:relative;overflow:hidden;box-shadow:0 20px 50px #12345b25}.hero:after{content:"";position:absolute;width:300px;height:300px;border:40px solid #ffffff0d;border-radius:50%;right:-70px;top:-100px}.eyebrow{display:inline-block;background:#d9f99d;color:#1b3b4d;border-radius:99px;padding:6px 13px;font-size:11px;font-weight:900;letter-spacing:1.1px;text-transform:uppercase}.hero h1{font-size:clamp(30px,5vw,54px);line-height:1.06;margin:16px 0 10px;letter-spacing:-1px}.hero p{max-width:790px;color:#dceaf9;margin:0}.hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}.btn{border:0;border-radius:12px;padding:11px 16px;font-weight:800;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:8px;cursor:pointer;transition:transform .2s,box-shadow .2s,filter .2s;background:var(--navy);color:white;box-shadow:0 7px 15px #142b4c20}.btn:hover{transform:translateY(-3px);box-shadow:0 13px 22px #142b4c2b;filter:brightness(1.04)}.btn:active{transform:translateY(1px) scale(.975)}.btn.light{background:white;color:var(--navy)}.btn.green{background:#d9f99d;color:#173c43}.btn:focus-visible,a:focus-visible{outline:3px solid #fbbf24;outline-offset:3px}
+.section{margin:30px 0}.head{display:flex;align-items:end;justify-content:space-between;gap:14px;margin-bottom:16px}.head h2{margin:0;font-size:clamp(22px,3vw,32px);color:var(--navy)}.head p{margin:4px 0 0;color:var(--muted)}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}.card{background:white;border:1px solid var(--line);border-radius:20px;padding:20px;box-shadow:0 10px 26px #1a3e6710;position:relative;overflow:hidden;transition:transform .22s,box-shadow .22s,border-color .22s}.card:hover{transform:translateY(-4px);box-shadow:0 17px 32px #1a3e671b;border-color:#a5c8f5}.card:before{content:"";height:5px;position:absolute;inset:0 0 auto;background:var(--accent,var(--blue))}.icon{width:48px;height:48px;display:grid;place-items:center;border-radius:15px;background:color-mix(in srgb,var(--accent,var(--blue)) 13%,white);font-size:25px;margin-bottom:8px}.card h3{margin:8px 0;color:var(--navy)}.card p{color:var(--muted);font-size:14px;margin:5px 0 14px}.mini{background:#f5f8ff;border:1px solid var(--line);color:var(--navy);border-radius:10px;padding:9px 12px;font-weight:800;cursor:pointer;transition:.2s}.mini:hover{background:#e5efff;transform:translateY(-2px)}.diagram{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;align-items:stretch;gap:10px;margin-top:14px}.stage{padding:17px 14px;border-radius:16px;text-align:center;color:#fff;font-weight:800;min-height:112px;display:flex;flex-direction:column;justify-content:center}.stage span{display:block;font-size:28px;margin-bottom:4px}.arrow{display:grid;place-items:center;color:#7b91ac;font-size:27px;font-weight:900}.note{background:#fff7dd;border:1px solid #f6df9c;border-radius:15px;padding:15px;color:#6f5116;font-size:14px}.year-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.year-btn{border:2px solid transparent;border-radius:18px;background:#fff;text-align:left;padding:16px;display:flex;gap:13px;align-items:center;cursor:pointer;box-shadow:0 8px 22px #1a3e6710;transition:transform .2s,box-shadow .2s,border-color .2s}.year-btn:hover{transform:translateY(-4px);box-shadow:0 14px 28px #1a3e671b}.year-btn.active{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 7%,white);box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 18%,transparent)}.year-number{width:52px;height:52px;flex:0 0 52px;border-radius:15px;display:grid;place-items:center;color:white;font-size:23px;font-weight:900;background:var(--accent)}.year-btn strong{display:block;color:var(--navy)}.year-btn small{color:var(--muted);display:block}.viewer{background:#fff;border:1px solid var(--line);border-radius:22px;overflow:hidden;box-shadow:0 14px 36px #1a3e6714}.viewer-top{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:17px 20px;background:#fff;border-bottom:1px solid var(--line)}.viewer-title{font-weight:900;color:var(--navy);font-size:18px}.viewer-sub{font-size:12px;color:var(--muted)}.viewer-actions{display:flex;gap:8px;flex-wrap:wrap}.frame-wrap{height:min(75vh,780px);min-height:450px;background:#eaf1fb}.frame-wrap iframe{border:0;width:100%;height:100%;background:white}.viewer-fallback{padding:16px 20px;background:#f8fbff;color:var(--muted);font-size:13px}.pill{display:inline-block;background:#e7f7ee;color:#19734e;border-radius:99px;padding:5px 9px;font-size:11px;font-weight:900}.standards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.standard{padding:18px;border-radius:17px;background:white;border:1px solid var(--line)}.standard h3{margin:6px 0;color:var(--navy)}.standard p{margin:0;color:var(--muted);font-size:14px}.footer{text-align:center;color:var(--muted);font-size:12px;padding:26px 8px 10px}
+@media(max-width:850px){.grid,.year-grid,.standards{grid-template-columns:repeat(2,minmax(0,1fr))}.diagram{grid-template-columns:1fr}.arrow{transform:rotate(90deg)}}
+@media(max-width:560px){.wrap{padding:12px}.grid,.year-grid,.standards{grid-template-columns:1fr}.hero{border-radius:20px}.head{align-items:start;flex-direction:column}.frame-wrap{height:65vh;min-height:380px}.viewer-top{padding:14px}.stage{min-height:90px}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+</style>
+</head>
+<body>
+<main class="wrap">
+<section class="hero">
+ <span class="eyebrow">📘 Curriculum · Standards · Assessment</span>
+ <h1>Standard-Based <span style="color:#d9f99d">Curriculum Design</span></h1>
+ <p>Explore the KSSR (Semakan 2017) Primary Science curriculum through an interactive guide to Content Standards, Learning Standards and Performance Standards. Select Year 1–Year 6 to view the English-edition DSKP reference.</p>
+ <div class="hero-actions"><a class="btn green" href="#year-selector">🚀 Explore DSKP by Year</a><a class="btn light" href="#curriculum-framework">🧭 View Curriculum Framework</a></div>
+</section>
+<section class="section" id="curriculum-framework">
+ <div class="head"><div><h2>🧩 How the curriculum works</h2><p>A visual guide to the relationship between curriculum standards and classroom assessment.</p></div></div>
+ <div class="diagram" aria-label="Curriculum process diagram">
+  <div class="stage" style="background:linear-gradient(135deg,#3b82f6,#2563eb)"><span>🎯</span>Content Standard (CS)<small>What pupils should know and do</small></div><div class="arrow">➜</div>
+  <div class="stage" style="background:linear-gradient(135deg,#10b981,#0f8f81)"><span>🔎</span>Learning Standard (LS)<small>Specific learning outcomes</small></div><div class="arrow">➜</div>
+  <div class="stage" style="background:linear-gradient(135deg,#8b5cf6,#6d43cf)"><span>📈</span>Performance Standard (PS)<small>Evidence of mastery</small></div>
+ </div>
+ <div class="note" style="margin-top:14px">Teacher reminder: use the Performance Standards in the applicable DSKP when making PBD judgements. Do not assume Performance Levels map directly one-to-one to Bloom's Taxonomy.</div>
+</section>
+<section class="section">
+ <div class="head"><div><h2>🌈 Six learning fields in Science</h2><p>These themes run across primary Science from Year 1 to Year 6.</p></div></div>
+ <div class="grid">
+  <article class="card" style="--accent:#3b82f6"><div class="icon">🔍</div><h3>Inquiry in Science</h3><p>Scientific skills, investigation, evidence, observation and communication.</p></article>
+  <article class="card" style="--accent:#10b981"><div class="icon">🌱</div><h3>Life Science</h3><p>Living things, their needs, life processes and relationships.</p></article>
+  <article class="card" style="--accent:#f59e0b"><div class="icon">⚡</div><h3>Physical Science</h3><p>Energy, forces, electricity, light, sound and movement.</p></article>
+  <article class="card" style="--accent:#ec4899"><div class="icon">🧪</div><h3>Material Science</h3><p>Materials, their properties, uses and changes.</p></article>
+  <article class="card" style="--accent:#8b5cf6"><div class="icon">🌍</div><h3>Earth and Space</h3><p>Earth, weather, the Solar System and the wider universe.</p></article>
+  <article class="card" style="--accent:#14b8a6"><div class="icon">🛠️</div><h3>Technology and Sustainability of Life</h3><p>Applying science ideas to technology, design and sustainable living.</p></article>
+ </div>
+</section>
+
+<section class="section" id="standards-explained">
+ <div class="head"><div><h2>💡 Understand the Curriculum Standards</h2><p>A clear guide to Content Standard, Learning Standard, Performance Standard and Performance Level.</p></div></div>
+ <div class="grid">
+  <article class="card" style="--accent:#3b82f6">
+   <div class="icon">🎯</div><span class="pill">WHAT TO LEARN</span><h3>1. Content Standard (CS)</h3>
+   <p>The broad area of knowledge, skills or values that pupils are expected to develop. It describes the main learning focus for a topic or unit.</p>
+   <p><b>Example:</b> A topic may focus on understanding living things and their needs.</p>
+   <p><b>Teacher use:</b> Read the CS first to understand the overall learning direction before planning a lesson.</p>
+  </article>
+  <article class="card" style="--accent:#10b981">
+   <div class="icon">🔎</div><span class="pill" style="background:#e1f8ee;color:#0c7b53">WHAT PUPILS SHOULD ACHIEVE</span><h3>2. Learning Standard (LS)</h3>
+   <p>A more specific learning outcome that explains what pupils should be able to demonstrate in relation to the Content Standard.</p>
+   <p><b>Example:</b> Pupils identify the basic needs of a living thing, as stated in the relevant DSKP.</p>
+   <p><b>Teacher use:</b> Use the LS to write lesson objectives, choose activities and decide what evidence to collect.</p>
+  </article>
+  <article class="card" style="--accent:#8b5cf6">
+   <div class="icon">📊</div><span class="pill" style="background:#f1eaff;color:#6d28d9">HOW WELL LEARNING IS SHOWN</span><h3>3. Performance Standard (PS)</h3>
+   <p>The reference criteria in the DSKP used to describe pupils’ level of mastery of the learning being assessed. It helps teachers make consistent judgements from evidence.</p>
+   <p><b>Teacher use:</b> Refer to the relevant PS when assessing a pupil; consider evidence from questioning, observation, written work and practical tasks.</p>
+  </article>
+ </div>
+ <div class="card" style="--accent:#f59e0b;margin-top:16px">
+  <div class="icon">📈</div><span class="pill" style="background:#fff2d2;color:#8a5200">LEVEL OF MASTERY</span>
+  <h3>4. Performance Level (PL) / Tahap Penguasaan (TP)</h3>
+  <p>A level assigned to describe the pupil’s demonstrated mastery against the Performance Standard. In Malaysian KSSR classroom-based assessment (PBD), the levels are generally reported as TP1 to TP6. Always use the descriptors for the specific subject and learning area in the applicable DSKP; the wording and expectations can differ by standard.</p>
+  <div class="standards" style="margin-top:14px">
+   <div class="standard"><span class="pill">TP1</span><h3>Know</h3><p>Shows basic knowledge of the relevant content, according to the DSKP descriptor.</p></div>
+   <div class="standard"><span class="pill">TP2</span><h3>Understand</h3><p>Shows understanding of the content or skill, according to the relevant descriptor.</p></div>
+   <div class="standard"><span class="pill">TP3</span><h3>Apply</h3><p>Uses knowledge or skills in a familiar situation, where specified by the descriptor.</p></div>
+   <div class="standard"><span class="pill">TP4</span><h3>Analyse / Use skills</h3><p>Demonstrates a more developed level of performance as described in the subject-specific DSKP.</p></div>
+   <div class="standard"><span class="pill">TP5</span><h3>Evaluate / Solve</h3><p>Demonstrates a high level of mastery, such as making judgements or solving problems when required by the descriptor.</p></div>
+   <div class="standard"><span class="pill">TP6</span><h3>Create / Innovate</h3><p>Demonstrates the highest level described in the relevant DSKP, which may include creativity, innovation or exemplary application.</p></div>
+  </div>
+  <p style="margin-top:14px"><b>Important:</b> The short labels above are a general learning aid, not universal official definitions of TP1–TP6. Do not assign a TP simply by matching it to a Bloom’s Taxonomy verb. Use the exact Performance Standard descriptor in the Science DSKP and the evidence collected from the pupil.</p>
+ </div>
+ <div class="card" style="--accent:#ec4899;margin-top:16px">
+  <div class="icon">🧭</div><h3>How to use all four in lesson planning</h3>
+  <div class="diagram">
+   <div class="stage" style="background:linear-gradient(135deg,#3b82f6,#2563eb)"><span>1</span>Read the CS<small>Identify the broad focus</small></div><div class="arrow">➜</div>
+   <div class="stage" style="background:linear-gradient(135deg,#10b981,#0f8f81)"><span>2</span>Select the LS<small>Set a measurable objective</small></div><div class="arrow">➜</div>
+   <div class="stage" style="background:linear-gradient(135deg,#8b5cf6,#6d43cf)"><span>3</span>Assess with PS / PL<small>Compare evidence with the descriptor</small></div>
+  </div>
+  <p style="margin-top:14px">Example workflow: select the relevant Content Standard → identify the Learning Standard → plan an activity and success criteria → collect evidence → compare the evidence with the applicable Performance Standard → record the justified Performance Level.</p>
+ </div>
+</section>
+
+<section class="section" id="year-selector">
+ <div class="head"><div><h2>📚 English DSKP Library · Year 1–6</h2><p>Select a year. The document viewer below updates to the chosen DSKP.</p></div><span class="pill">KSSR SEMAKAN 2017 · DLP / ENGLISH</span></div>
+ <div class="year-grid" id="yearGrid">
+  <button class="year-btn active" data-year="1" style="--accent:#3b82f6"><span class="year-number">1</span><span><strong>Science Year 1</strong><small>English Edition · DSKP</small></span></button>
+  <button class="year-btn" data-year="2" style="--accent:#10b981"><span class="year-number">2</span><span><strong>Science Year 2</strong><small>English Edition · DSKP</small></span></button>
+  <button class="year-btn" data-year="3" style="--accent:#f59e0b"><span class="year-number">3</span><span><strong>Science Year 3</strong><small>English Edition · DSKP</small></span></button>
+  <button class="year-btn" data-year="4" style="--accent:#ec4899"><span class="year-number">4</span><span><strong>Science Year 4</strong><small>English Edition · DSKP</small></span></button>
+  <button class="year-btn" data-year="5" style="--accent:#8b5cf6"><span class="year-number">5</span><span><strong>Science Year 5</strong><small>English Edition · DSKP</small></span></button>
+  <button class="year-btn" data-year="6" style="--accent:#14b8a6"><span class="year-number">6</span><span><strong>Science Year 6</strong><small>English Edition · DSKP</small></span></button>
+ </div>
+</section>
+<section class="section" id="dskp-viewer">
+ <div class="viewer">
+  <div class="viewer-top"><div><div class="viewer-title" id="viewerTitle">Science Year 1 — DSKP (English Edition)</div><div class="viewer-sub">KSSR Semakan 2017 · Embedded document preview</div></div><div class="viewer-actions"><a class="btn" id="openDskp" href="https://anyflip.com/nuzm/qywz/basic/" target="_blank" rel="noopener">↗ Open in new tab</a><button class="btn light" id="reloadDskp" type="button">⟳ Reload preview</button></div></div>
+  <div class="frame-wrap"><iframe id="dskpFrame" title="English DSKP Science Year 1" src="https://anyflip.com/nuzm/qywz/basic/" loading="lazy" allowfullscreen></iframe></div>
+  <div class="viewer-fallback">If the document does not display inside this preview, use <b>Open in new tab</b>. Some document providers restrict embedding on external sites.</div>
+ </div>
+</section>
+<section class="section">
+ <div class="head"><div><h2>🧠 Standards at a glance</h2><p>Use the three standards together when planning teaching, learning and assessment.</p></div></div>
+ <div class="standards">
+  <article class="standard"><span class="pill">01 · PLAN</span><h3>Content Standard</h3><p>Identifies the knowledge, skills and values pupils are expected to acquire.</p></article>
+  <article class="standard"><span class="pill" style="background:#e1f8ee;color:#0c7b53">02 · TEACH</span><h3>Learning Standard</h3><p>Describes the specific learning outcomes that guide lessons and learning activities.</p></article>
+  <article class="standard"><span class="pill" style="background:#f1eaff;color:#6d28d9">03 · ASSESS</span><h3>Performance Standard</h3><p>Provides criteria for interpreting pupils' demonstrated levels of mastery.</p></article>
+ </div>
+</section>
+<section class="section">
+ <div class="head"><div><h2>🔗 Curriculum resources</h2><p>Useful references for checking the selected document and related materials.</p></div></div>
+ <div class="grid">
+  <article class="card" style="--accent:#3b82f6"><div class="icon">📘</div><h3>All English DSKP Year 1–6</h3><p>Open the school science portal that lists the six DLP Science documents.</p><a class="btn" href="https://sites.google.com/moe-dl.edu.my/sk-stan-portal-2026/fail-fail-panitia/sains/dskp-sains" target="_blank" rel="noopener">Open DSKP portal ↗</a></article>
+  <article class="card" style="--accent:#10b981"><div class="icon">🏛️</div><h3>Ministry of Education Malaysia</h3><p>Visit the official KPM portal for current announcements and curriculum references.</p><a class="btn" href="https://www.moe.gov.my/" target="_blank" rel="noopener">Visit KPM ↗</a></article>
+  <article class="card" style="--accent:#f59e0b"><div class="icon">📝</div><h3>Classroom-Based Assessment</h3><p>Use the relevant Performance Standards and school assessment procedures when recording progress.</p><button class="btn" id="assessmentTip" type="button">Show assessment reminder</button><p id="assessmentMessage" hidden>Keep evidence from observations, pupils' work, questioning and practical activities. Make judgements against the relevant DSKP Performance Standards.</p></article>
+ </div>
+</section>
+<footer class="footer">TEACHER AUS SCIENCE LAB · Standard-Based Curriculum Design<br>Document links are hosted by external education/resource portals. Check the edition and suitability before official use.</footer>
+</main>
+<script>
+const docs={
+1:"https://anyflip.com/nuzm/qywz/basic/",
+2:"https://anyflip.com/ittl/ygqq/basic/",
+3:"https://anyflip.com/ittl/rcmy/basic/",
+4:"https://anyflip.com/ittl/xhob/basic/",
+5:"https://anyflip.com/ittl/gsxj/basic/",
+6:"https://anyflip.com/ittl/btjj/basic/"
+};
+const frame=document.getElementById("dskpFrame"),title=document.getElementById("viewerTitle"),open=document.getElementById("openDskp");
+function selectYear(year,scroll=true){
+ const url=docs[year];if(!url)return;
+ frame.src=url;frame.title=`English DSKP Science Year ${year}`;
+ title.textContent=`Science Year ${year} — DSKP (English Edition)`;
+ open.href=url;
+ document.querySelectorAll(".year-btn").forEach(b=>{const active=b.dataset.year===String(year);b.classList.toggle("active",active);b.setAttribute("aria-pressed",String(active))});
+ if(scroll)document.getElementById("dskp-viewer").scrollIntoView({behavior:"smooth",block:"start"});
+}
+document.querySelectorAll(".year-btn").forEach(b=>b.addEventListener("click",()=>selectYear(b.dataset.year)));
+document.getElementById("reloadDskp").addEventListener("click",()=>{const y=document.querySelector(".year-btn.active")?.dataset.year||"1";frame.src=docs[y]});
+document.getElementById("assessmentTip").addEventListener("click",()=>{const p=document.getElementById("assessmentMessage");p.hidden=!p.hidden;document.getElementById("assessmentTip").textContent=p.hidden?"Show assessment reminder":"Hide assessment reminder"});
+selectYear("1",false);
+</script>
+</body>
+</html>
