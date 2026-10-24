@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TEACHER AUS SCIENCE LAB — Standard-Based Curriculum Design</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; width: 100%; background: #f3f7fc; overflow-x: hidden; }
+  #curriculumFrame { display:block; width:100%; height:1200px; border:0; background:#f3f7fc; }
+  #status { padding:18px; color:#173b46; font:15px/1.5 Arial, sans-serif; }
+</style>
+</head>
+<body>
+<div id="status">Loading Standard-Based Curriculum Design…</div>
+<iframe id="curriculumFrame" title="Standard-Based Curriculum Design" src="./index.html"></iframe>
+<script>
+(() => {
+  const frame = document.getElementById("curriculumFrame");
+  const status = document.getElementById("status");
+
+  function prepareCurriculum() {
+    try {
+      const win = frame.contentWindow;
+      const doc = frame.contentDocument;
+      if (!doc || typeof win.go !== "function") {
+        throw new Error("The main Science Lab page has not finished loading.");
+      }
+
+      // Ask the existing prototype to render only the curriculum page.
+      win.go("curriculum");
+
+      // Hide global navigation and leave the curriculum content as the page display.
+      const style = doc.createElement("style");
+      style.id = "curriculum-only-embed-style";
+      style.textContent = `
+        .topbar, #sidebar, #overlay, footer.footer { display:none !important; }
+        .layout { display:block !important; grid-template-columns:1fr !important; min-height:0 !important; }
+        .content { display:block !important; width:100% !important; max-width:none !important; margin:0 !important; padding:clamp(12px,2.5vw,28px) !important; }
+        html, body { margin:0 !important; padding:0 !important; width:100% !important; overflow-x:hidden !important; }
+      `;
+      doc.head.appendChild(style);
+      status.remove();
+
+      const resizeFrame = () => {
+        const height = Math.max(
+          850,
+          doc.documentElement ? doc.documentElement.scrollHeight : 0,
+          doc.body ? doc.body.scrollHeight : 0
+        );
+        frame.style.height = height + "px";
+      };
+
+      resizeFrame();
+      if ("ResizeObserver" in window && doc.body) {
+        new ResizeObserver(resizeFrame).observe(doc.body);
+      }
+      setTimeout(resizeFrame, 250);
+      setTimeout(resizeFrame, 900);
+      setTimeout(resizeFrame, 1800);
+    } catch (error) {
+      status.textContent = "The curriculum display could not load. Check that index.html and curriculum.html are both published in the repository root.";
+    }
+  }
+
+  frame.addEventListener("load", prepareCurriculum);
+})();
+</script>
+</body>
+</html>
